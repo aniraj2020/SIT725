@@ -1,2 +1,2 @@
-# SIT725_W1
-This is Week 1 workshop
+# SIT725 
+This is repo is for SIT725 hands-on files.
