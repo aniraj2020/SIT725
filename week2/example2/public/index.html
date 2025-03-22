@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 2.2P</title>
+</head>
+<body>
+  <h1>Add Two Numbers (generate url, which we can call to see the result)</h1>
+
+  <label for="num1">Enter number 1:</label>
+  <input type="number" id="num1"><br><br>
+
+  <label for="num2">Enter number 2:</label>
+  <input type="number" id="num2"><br><br>
+
+  <button onclick="generateURL()">Generate URL</button>
+
+  <p id="output"></p>
+
+  <script>
+    function generateURL() {
+      const a = document.getElementById('num1').value;
+      const b = document.getElementById('num2').value;
+
+      if (a && b) {
+        const link = `/add?a=${a}&b=${b}`;
+        document.getElementById('output').innerHTML = `
+          Visit: <a href="${link}" target="_blank">${link}</a>
+        `;
+      } else {
+        document.getElementById('output').innerText = 'Please enter both numbers!';
+      }
+    }
+  </script>
+</body>
+</html>
