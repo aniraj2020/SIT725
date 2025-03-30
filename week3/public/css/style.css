@@ -1,0 +1,59 @@
+/* Navbar spacing */
+.navbar-size {
+  padding: 0 20px;
+}
+
+/* Navbar styling */
+nav {
+  background-color: #2196f3; /* Materialize blue */
+}
+
+nav a {
+  color: white;
+}
+
+/* Demo preview image */
+.demo-preview {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.demo-preview:hover {
+  transform: scale(1.05);
+}
+
+/* Card styling */
+#card-section .card {
+  margin-top: 20px;
+  transition: transform 0.3s ease;
+}
+
+#card-section .card:hover {
+  transform: translateY(-5px);
+}
+
+/* Video caption */
+.video-caption {
+  font-style: italic;
+  color: #555;
+  margin-top: 8px;
+}
+
+/* Body & layout */
+body {
+  background-color: #f9f9f9;
+  font-family: 'Roboto', sans-serif;
+}
+
+.main-body {
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+/* Form button spacing */
+#formSubmit {
+  margin-top: 20px;
+}
