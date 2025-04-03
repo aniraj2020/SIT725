@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SIT725 Task 4.2P</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-wrapper navbar-size">
+      <a href="#" class="brand-logo">SIT725</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a target="_blank" href="https://github.com/aniraj2020/">My GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-body">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 center-align">
+          <h1>Welcome to SIT725 Week 4</h1>
+          <p class="flow-text">Now with backend power! Cards + Form data stored in MongoDB.</p>
+        </div>
+
+        <!-- Learning List -->
+        <div class="col s12">
+          <h5 class="center-align">We are learning about:</h5>
+          <ul class="collection z-depth-2">
+            <li class="collection-item">
+              <a href="https://expressjs.com/en/starter/installing.html" target="_blank">Setting up an Express Web Server</a>
+            </li>
+            <li class="collection-item">
+              <a href="https://materializecss.com/getting-started.html" target="_blank">Creating Responsive UI with Materialize CSS</a>
+            </li>
+            <li class="collection-item">
+              <a href="https://jquery.com/" target="_blank">Adding Interactivity Using jQuery</a>
+            </li>
+            <li class="collection-item">
+              <a href="https://www.mongodb.com/" target="_blank">Using MongoDB with Node.js</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Click Me Button -->
+        <div class="col s12 center-align">
+          <a class="waves-effect waves-light btn modal-trigger" id="clickMeButton" data-target="modal1">
+            <i class="material-icons left">auto_fix_high</i>Click Me
+          </a>
+        </div>
+      </div>
+
+      <!-- Cards and Demo Section -->
+      <div class="row">
+        <div class="col s12 m6" id="card-section"></div>
+
+        <div class="col s12 m6 center-align">
+          <a href="https://youtu.be/71OTDdojIAs?si=StL3NPFaV40rvMeU" target="_blank">
+            <img class="demo-preview" src="images/livedemo.jpg" alt="Bootstrap with ExpressJS Demo Thumbnail">
+          </a>
+          <p class="video-caption">Click the image to watch a video on using Bootstrap in Express JS</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Form -->
+    <div id="modal1" class="modal modal-fixed-footer">
+      <div class="row modal-content">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input placeholder="First Name" id="first_name" type="text" class="validate">
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="last_name" type="text" class="validate">
+              <label for="last_name">Last Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email" type="email" class="validate">
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12 center-align">
+              <a class="waves-effect waves-light btn" id="formSubmit">Submit</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

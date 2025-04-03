@@ -1,0 +1,23 @@
+{
+  "name": "week4",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aniraj2020/SIT725.git"
+  },
+  "author": "aniraj2020",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aniraj2020/SIT725/issues"
+  },
+  "homepage": "https://github.com/aniraj2020/SIT725#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.13.1"
+  }
+}
