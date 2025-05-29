@@ -20,7 +20,8 @@ const predictRoutes = require("./routes/predict");
 const authRoutes = require("./routes/auth");
 const adminRoutes = require("./routes/admin");
 const userRoutes = require("./routes/user");
-const studentRoute = require('./routes/student');
+
+const studentRoute = require('./routes/student'); //for task 8.2HD
 
 const { ensureAuthenticated, ensureAdmin } = require("./middleware/auth");
 const { showAllUsers } = require("./controllers/adminController");
@@ -180,7 +181,7 @@ app.use("/api/predict", predictRoutes);
 app.use("/api/user", userRoutes);
 app.use("/", authRoutes);
 app.use("/", adminRoutes);
-app.use('/api/student', studentRoute);
+app.use('/api/student', studentRoute);  //for task 8.2HD
 
 io.on("connection", (socket) => {
   const userId = socket.handshake?.session?.passport?.user;
