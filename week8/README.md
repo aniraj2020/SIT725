@@ -53,7 +53,6 @@ docker-compose up -d
 
 ```
 
-
 This runs the app and database in the background.
 
 ---
@@ -74,7 +73,7 @@ You should see the FoodLens web app running inside the Docker container.
 
 ## 6. Verify the Submission Identity Endpoint
 
-To confirm your submission and verify the app is running your code, visit:
+To confirm my submission and verify the app is running my code, visit:
 
 ```bash
 
@@ -125,4 +124,3 @@ I created and configured a `docker-compose.yml` file to orchestrate the FoodLens
 Managing environment variables securely using a `.env` file and integrating it with Docker Compose helped me understand best practices in configuration management. The process of writing the Dockerfile and Docker Compose setup deepened my appreciation for how container orchestration simplifies deployment and testing.
 
 Finally, successfully running the full stack inside containers and verifying the unique /api/student endpoint, which clearly identifies my submission. Overall, this task enhanced my practical skills in Docker, environment configuration, and deploying Node.js applications with databases.
-
