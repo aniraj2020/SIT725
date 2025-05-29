@@ -1,161 +1,128 @@
-# FoodLens – Visualizing & Predicting Food Insecurity in Melbourne
+# Running the Dockerized FoodLens Application
 
-**FoodLens** is a full-stack web application that empowers users to explore, analyze, and predict food insecurity trends using open government data from the City of Melbourne. It offers interactive visualizations, real-time feedback, and predictive analytics to support better decision-making for communities and policymakers.
-
----
-
-## Features
-
-- **User Authentication**
-  - A landing Page view details of the app, and route to login/register
-  - Register, Login, Logout via Passport.js
-  - Admin and Normal User roles
-  - Real-time welcome messages using Socket.IO
-- **Interactive Dashboards**
-  - Insecurity Types Pie Chart
-  - Demographic-based Bar Charts
-  - Combined Trends Comparison (Grouped Bar)
-  - Insight Explorer (Multi-line by Category)
-  - Future Trend Prediction via Linear Regression
-- **Admin Panel**
-  - View all registered users and their roles
-  - Promote/Demote users
-  - Clear individual user history
-  - Export activity logs (CSV)
-  - User activity tracking (last chart visited + filters)
-  - Track active users and chart visits (Usage Analytics tab)
-- **Testing**
-  - Postman API test collection included
-  - Chai , Mocha and Supertest unit testing
-  - Manual testing checklist
-- **Data Preprocessing**
-  - Cleaned CSV data
-  - Jupyter notebook for transformation & EDA
-  - Seed script to import data into MongoDB
+Follow these steps to build, run, and verify the FoodLens application using Docker containers.
 
 ---
 
-## Tech Stack
+## 1. Clone the Repository
 
-| Layer        | Technologies                                  |
-|--------------|-----------------------------------------------|
-| Frontend     | HTML, CSS (Materialize), Vanilla JS, Chart.js |
-| Backend      | Node.js, Express.js                           |
-| Database     | MongoDB + Mongoose                            |
-| Auth         | Passport.js (Local), bcryptjs                 |
-| Real-time    | Socket.IO                                     |
-| View Engine  | EJS                                           |
-| Data Parsing | csv-parser + Python (Jupyter Notebook)        |
-| Testing      | Postman, Mocha, Chai, Supertest               |
+Clone the repository containing the application and Docker files:
 
----
-## Dependencies
+
+```bash 
+
+git clone https://github.com/aniraj2020/SIT725.git
 
 ```
 
-Category        : Packages
----------------------------------------------
-Core            : express, mongoose, ejs, dotenv, csv-parser, csv-writer
-Auth & Session  : passport, passport-local, bcryptjs, express-session
-Real-time       : socket.io, express-socket.io-session
-Testing         : mocha, chai, supertest
-Dev Utilities   : nodemon
+---
 
-```
+## 2. Navigate to the Docker Setup Folder
 
-## Installation & Setup
-
-### 1. Clone the Repository
+Change directory to the folder with the Docker configuration (week8):
 
 ```bash
-git clone https://github.com/aniraj2020/foodlens.git
-cd foodlens-app
+
+cd SIT725/week8
+
 ```
 
-### 2. Install Dependencies
+---
+
+## 3. Build the Docker Image
+
+Build the Docker image using Docker Compose:
 
 ```bash
-npm install
-```
 
-### 3. Create a .env File
-
-Create a `.env` file in the root directory and add your MongoDB URI (example below):
+docker-compose build
 
 ```
-MONGO_URI=mongodb://localhost:27017/foodlens
-```
 
-### 4. Seed the Database
+This will install all dependencies and prepare the app container.
+
+---
+
+## 4. Run the Docker Containers
+
+Start the application and MongoDB containers in detached mode:
 
 ```bash
-node seed/seedData.js
+
+docker-compose up -d
+
 ```
 
-### 5. Run the App
+
+This runs the app and database in the background.
+
+---
+
+## 5. Access the Application
+
+Open your browser and go to:
 
 ```bash
-npm run start
-```
 
----
-
-## Project Structure
+http://localhost:3001
 
 ```
 
-foodlens-app/
-├── assets/                               # Flowchart and visual assets
-├── config/                               # DB config
-├── controllers/                          # Modular route logic
-├── models/                               # Mongoose schemas
-├── routes/                               # Route handlers
-├── public/                               # Static files (JS, CSS, logo)
-├── seed/                                 # seedData.js for MongoDB import
-├── views/                                # EJS UI templates
-├── data/                                 # Cleaned CSVs
-├── test/                                 # Mocha/Chai test folder
-├── .env / .env.example                   # Environment variables
-├── FoodLens API Tests.json               # Postman collection
-├── test-results.txt                      # Output from Mocha + Chai + Supertest test suite
-├── foodlens_data_preprocessing.ipynb     # Jupyter notebook for data preprocessing and EDA
-├── FoodLens_Manual_Testing_Checklist_Fulfilled.xlsx
-├── README.md
-├── server.js                             # Main Express server entry point
-├── package.json                          # Project metadata and dependencies
+You should see the FoodLens web app running inside the Docker container.
 
+---
+
+## 6. Verify the Submission Identity Endpoint
+
+To confirm your submission and verify the app is running your code, visit:
+
+```bash
+
+http://localhost:3001/api/student
 
 ```
 
+You should see a JSON response similar to:
+
+![Student Endpoint Screenshot](assets/student_endpoint.png)
+
 ---
 
-## Admin Access
+## Additional Notes
 
-- Super Admin: Created from backend
-- Username: adminuser
-- Password: adminpassword123
+- The `.env` file inside the `week8` folder configures the MongoDB URI for Docker networking:
+
+```bash
+
+MONGO_URI=mongodb://mongo:27017/foodlens
 
 ```
 
----
-###  Backend Architecture Diagram
+- MongoDB data is persisted using a Docker volume named `mongo-data`.
 
-![FoodLens Backend Architecture](./assets/flowChart.png)
+- **To seed the database manually (optional):**
 
----
-###  Trello Board
+```bash
 
-https://trello.com/b/p28xfmE7/foodlens
+docker-compose exec app node seed/seedData.js
 
----
+```
 
-## License & Data Source
+- **To stop the containers:**
 
-This project is built for academic (SIT725) and demonstration purposes. 
-Data sourced from: [City of Melbourne Open Data Portal](https://data.melbourne.vic.gov.au/)
+```bash
 
----
+docker-compose down
 
-**Enjoy exploring FoodLens!**
+```
 
----
+## Reflection
+
+Dockerising the FoodLens application provided valuable insights into containerisation and environment management. One challenge was ensuring the app correctly connected to the MongoDB database running as a separate container. This required configuring the MongoDB URI in the `.env` file to use the Docker service name, allowing seamless networking between containers.
+
+I created and configured a `docker-compose.yml` file to orchestrate the FoodLens application and MongoDB containers, manage environment variables, ports, and volumes, enabling easy deployment and testing with a single command.
+
+Managing environment variables securely using a `.env` file and integrating it with Docker Compose helped me understand best practices in configuration management. The process of writing the Dockerfile and Docker Compose setup deepened my appreciation for how container orchestration simplifies deployment and testing.
+
+Finally, successfully running the full stack inside containers and verifying the unique /api/student endpoint, which clearly identifies my submission. Overall, this task enhanced my practical skills in Docker, environment configuration, and deploying Node.js applications with databases.
+
