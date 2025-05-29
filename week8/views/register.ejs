@@ -1,0 +1,54 @@
+<h4 class="center-align">Create a FoodLens Account</h4>
+<p class="center-align">Register below to start exploring food insecurity insights.</p>
+
+<div class="row">
+  <div class="col s12 m6 offset-m3">
+    <form id="registerForm" action="/register" method="POST">
+      
+      <!-- Username Field -->
+      <div class="input-field">
+        <input type="text" name="username" id="username" required />
+        <label for="username">Username</label>
+      </div>
+
+      <!-- Password Field -->
+      <div class="input-field">
+        <input
+          type="password"
+          name="password"
+          id="password"
+          required
+          pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+          title="Minimum 8 characters with at least 1 letter, 1 number, and 1 special character"
+        />
+        <label for="password">
+          Password 
+          <span style="font-size: 0.8em; color: gray;">
+            (min 8 chars, 1 letter, 1 number, 1 symbol)
+          </span>
+        </label>
+        <span onclick="togglePassword()" style="cursor:pointer;color:teal;font-size: 0.9em;">Show/Hide Password</span>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn waves-effect waves-light full-width">Register</button>
+
+      <!-- Login Link -->
+      <p class="center-align" style="margin-top: 20px;">
+        Already have an account? <a href="/login">Login</a>
+      </p>
+    </form>
+  </div>
+</div>
+
+<!-- Script Section -->
+<script>
+  function togglePassword() {
+    const input = document.getElementById("password");
+    input.type = input.type === "password" ? "text" : "password";
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    M.updateTextFields();
+  });
+</script>
