@@ -31,6 +31,15 @@ cd SIT725/week8
 
 ## 3. Build the Docker Image
 
+**Prerequisites:** Before running the app, make sure you have:
+
+- Docker Desktop installed
+
+- Docker is running
+
+- docker-compose is available (It comes bundled with Docker Desktop on Mac & Windows.)
+
+
 Build the Docker image using Docker Compose:
 
 ```bash
